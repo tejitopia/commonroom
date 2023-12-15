@@ -1,0 +1,22 @@
+CommonRoom: A Brief Overview
+
+CommonRoom is an innovative chat application that revives the essence of fleeting, meaningful interactions reminiscent of hostel common rooms. It's a digital space where individuals from all walks of life can come together, engage in conversations, and share experiences, albeit briefly.
+
+Key Features:
+Random Chat Duration: Each chat session in CommonRoom has a randomly determined duration, ranging from 60 seconds to 60 minutes, adding an element of surprise and spontaneity to every interaction.
+
+Group Conversations: Unlike typical one-on-one chat apps, CommonRoom allows for group chats with 2-5 participants, fostering a communal atmosphere where diverse thoughts and stories intersect.
+
+Anonymity with a Twist: Participants are given randomly generated usernames for each session. This anonymity encourages openness and authenticity, free from the biases of identity and social media profiles.
+
+Real-Time Interaction: The platform is designed for live, real-time text-based conversations, making each chat dynamic and engaging.
+
+No History, No Clutter: True to the nature of transient hostel interactions, chats are not saved. Once a session ends, the conversation disappears, leaving room for new stories and connections.
+
+Simple and Inclusive Design: CommonRoom's user interface is minimalistic, intuitive, and accessible, ensuring that users of all tech proficiencies can easily navigate and enjoy the experience.
+
+The Philosophy:
+CommonRoom is more than just a chat app; it's a digital embodiment of the transient yet impactful connections made in hostel common rooms. It's a space for digital nomads, travelers, and curious souls to meet, share a slice of their journey, and part ways, perhaps richer for the encounter. In an age where digital connections often lack depth, CommonRoom brings back the magic of serendipitous, meaningful interactions.
+
+Privacy:
+At CommonRoom, we cherish your privacy as much as you do. All chats are ephemeral – disappearing after the session ends, leaving no digital footprint behind. Embrace the freedom of unburdened conversations; no data, no traces, just genuine interactions.

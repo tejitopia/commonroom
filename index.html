@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommonRoom Chat Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <header id="app-header">
+            CommonRoom
+            <a href="about.html" class="about-button">About</a>
+        </header>
+        <div id="room-info">
+            <span id="participant-count">👥 4/5 Travelers</span>
+        </div>
+        <div id="online-users">
+            <span>Users Online: <span class="online-count">12,890</span></span>
+        </div>
+        <div id="timer">Time Left in Room: 15:00</div>
+        <div id="chat-container">
+            <!-- Chat messages will go here -->
+            <div class="chat-message">
+                <span class="username" style="color: #ff4500;">Explorer42:</span> Hey everyone, where are you all from?
+            </div>
+            <div class="chat-message">
+                <span class="username" style="color: #32cd32;">GreenTraveler:</span> I'm visiting from Brazil!
+            </div>
+            <div class="chat-message">
+                <span class="username" style="color: #1e90ff;">SkyWatcher:</span> Greetings from Australia!
+            </div>
+            <div class="chat-message">
+                <span class="username" style="color: #daa520;">SunnySide:</span> Sunny California here!
+            </div>
+        </div>
+        <div id="message-input-container">
+            <input type="text" id="message-input" placeholder="Type your message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <footer id="app-footer">
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
