@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CommonRoom Chat Application</title>
-<link rel="stylesheet" href="styles.css" />
-<!-- Include the Socket.IO client library -->
-<script src="/socket.io/socket.io.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommonRoom Chat Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
 </head>
-
 <body>
-<div id="app-container">
-<header id="app-header">
-CommonRoom
-<a href="about.html" class="about-button">About</a>
-</header>
-<div id="room-info">
-<span id="participant-count">👥 4/5 Travelers</span>
-</div>
-<div id="online-users">
-<span>Users Online: <span class="online-count">12,890</span></span>
-</div>
-<div id="timer">Time Left in Room: 15:00</div>
-<div id="chat-container"></div>
-<div id="message-input-container">
-<input type="text" id="message-input" placeholder="Type your message..." />
-<button id="send-button">Send</button>
-</div>
-</div>
-<footer id="app-footer">
-<!-- Add footer content here -->
-</footer>
-<!-- Include your custom JavaScript file -->
-<script src="script.js"></script>
+    <div id="app-container">
+        <header id="app-header">
+            CommonRoom
+            <a href="about.html" class="about-button">About</a>
+        </header>
+        <div id="room-info">
+            <span id="participant-count">👥 4/5 Travelers</span>
+        </div>
+        <div id="online-users">
+            <span>Users Online: <span class="online-count">12,890</span></span>
+        </div>
+        <div id="timer">Time Left in Room: 15:00</div>
+        <div id="chat-container">
+            <!-- Chat messages will go here -->
+        </div>
+        <div id="message-input-container">
+            <input type="text" id="message-input" placeholder="Type your message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <footer id="app-footer">
+    </footer>
+    <script src="script.js"></script>
 </body>
-
 </html>
