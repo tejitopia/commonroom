@@ -19,7 +19,7 @@ body {
 }
 
 #app-header {
-    background-color: #007bff;
+    background-color: rgb(0, 123, 255);
     color: white;
     text-align: center;
     font-size: 30px;
@@ -63,11 +63,17 @@ body {
 }
 
 .chat-message {
-    background-color: white;
+    background-color: #f5f5f5; /* Light gray background for messages */
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; /* Add a border to separate messages */
+}
+
+/* Style alternating messages with a different background color */
+.chat-message:nth-child(odd) {
+    background-color: #fff; /* White background for odd messages */
 }
 
 .username {
@@ -85,23 +91,25 @@ body {
 #message-input {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
+    outline: none; /* Remove the outline when input is focused */
 }
 
 #send-button {
-    background-color: #28a745;
+    background-color: #007bff; /* Change the button color */
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
 #send-button:hover {
-    background-color: #218838;
+    background-color: #0056b3; /* Change the button color on hover */
 }
 
 .about-button {
