@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const moment = require('moment');
 
 const app = express();
 const server = http.createServer(app);
@@ -8,47 +9,70 @@ const io = socketIo(server);
 
 const port = process.env.PORT || 3001;
 
-// Serve static files from the 'public' directory
+let chatRooms = {};
+let roomDurations = {};
+let connectedUsers = {};
+
 app.use(express.static('public'));
 
-// A simple route for the root ('/') path
 app.get('/', (req, res) => {
-res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
-// Socket.io connection event
 io.on('connection', (socket) => {
-console.log('A user connected');
+    console.log('A user connected');
 
-// Notify the client that they are connected
-socket.emit('connected', { message: 'You are now connected to the chat server.' });
+    const roomName = assignUserToRoom(socket.id);
+    socket.join(roomName);
+    connectedUsers[socket.id] = { room: roomName };
 
-// Add your socket.io logic here for handling messages, chat rooms, etc.
+    console.log(`User ${socket.id} assigned to room ${roomName}`);
 
-socket.on('chat message', (data) => {
-console.log('Received chat message:', data);
-// Process and broadcast the message as needed
-io.emit('chat message', data); // Broadcast to all connected clients
+    socket.emit('chat message', {
+        username: 'CommonRoom',
+        text: 'Welcome to CommonRoom! Start chatting with random people from around the world.',
+        timestamp: moment().valueOf(),
+        color: "#000000"
+    });
+
+    socket.on('chat message', (data) => {
+        console.log(`Received message in room ${roomName}:`, data);
+        io.to(roomName).emit('chat message', data);
+    });
+
+    socket.on('disconnect', () => {
+        console.log(`User ${socket.id} disconnected`);
+        if (connectedUsers[socket.id]) {
+            delete connectedUsers[socket.id];
+        }
+        removeFromRoom(socket.id, roomName);
+    });
 });
 
-// Handle the 'test event' from the client
-socket.on('test event', (data) => {
-console.log('Received test event from client:', data.message);
+function assignUserToRoom(socketId) {
+    for (const room in chatRooms) {
+        if (chatRooms[room].length < 5) {
+            chatRooms[room].push(socketId);
+            return room;
+        }
+    }
 
-// Respond back to the client with a 'test response' event
-socket.emit('test response', { message: 'This is a test response from the server' });
-});
+    const newRoom = `room-${Object.keys(chatRooms).length + 1}`;
+    chatRooms[newRoom] = [socketId];
+    roomDurations[newRoom] = Math.floor(Math.random() * (60 * 60)) + 60;
+    return newRoom;
+}
 
-// Send the current number of connected users to all clients
-io.emit('user connected', { count: io.engine.clientsCount });
+function removeFromRoom(socketId, roomName) {
+    chatRooms[roomName] = chatRooms[roomName].filter(id => id !== socketId);
+    delete connectedUsers[socketId];
 
-socket.on('disconnect', () => {
-console.log('A user disconnected');
-// Handle user disconnection
-});
-});
+    if (chatRooms[roomName].length === 0) {
+        delete chatRooms[roomName];
+        delete roomDurations[roomName];
+    }
+}
 
-// Start the server
 server.listen(port, () => {
-console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
