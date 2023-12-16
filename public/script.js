@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendButton = document.getElementById("send-button");
   const chatContainer = document.getElementById("chat-container");
   const roomInfo = document.getElementById("room-info");
+  const usersXcolorMapping = {};
 
   function appendMessage(username, message, color) {
     const chatMessage = document.createElement("div");
@@ -17,12 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function sendMessage() {
     const message = messageInput.value.trim();
     if (message !== "") {
-      appendMessage("You", message, "#007bff");
-      socket.emit("chat message", {
-        username: "You",
-        message,
-        color: "#007bff",
-      });
+      appendMessage("You", message, usersXcolorMapping[socket.id]);
+      socket.emit(
+        "message-sent",
+        JSON.stringify({
+          message,
+        })
+      );
       messageInput.value = "";
     }
   }
@@ -37,8 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  socket.on("chat message", (data) => {
-    appendMessage(data.username, data.message, data.color);
+  socket.on("message-received", (data) => {
+    let inputData = JSON.parse(data);
+    console.log(inputData);
+    appendMessage(
+      inputData.username,
+      inputData.message,
+      usersXcolorMapping[inputData.username]
+    );
   });
 
   socket.on("user-joined", (data) => {
@@ -46,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(inputData);
     console.log(`User ${data} joined the chat`);
 
+    usersXcolorMapping[inputData.username] = inputData.color;
     startTimer(inputData.time_left);
     appendMessage(inputData.username, ` joined the chat`, inputData.color);
     updateUsersCount(inputData.people_in_room);
@@ -73,17 +82,19 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
 
   // Function to handle the countdown timer
+  let interval;
   function startTimer(duration) {
+    clearInterval(interval);
     let minutes = Math.floor(duration / 60);
-    let seconds = duration % 60;
+    let seconds = Math.floor(duration) % 60;
 
     const timerElement = document.getElementById("timer");
     timerElement.innerHTML = `${minutes} minutes and ${seconds} seconds`;
 
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
       if (duration > 0) {
         minutes = Math.floor(duration / 60);
-        seconds = duration % 60;
+        seconds = Math.floor(duration) % 60;
 
         timerElement.innerHTML = `${minutes} minutes and ${seconds} seconds`;
 
@@ -100,6 +111,25 @@ document.addEventListener("DOMContentLoaded", () => {
 function updateUsersCount(count) {
   const usersCount = document.getElementById("participant-count");
   usersCount.innerHTML = `👥 ${count}/5 People in Room`;
+
+  if (count === 1) {
+    const spinner = document.getElementById("spinner-container");
+    // removing border bottom top for divs around spinner
+    const chatContainer = document.getElementById("chat-container");
+    chatContainer.style.borderBottom = "none";
+    const messageInput = document.getElementById("message-input-container");
+    messageInput.style.borderTop = "none";
+    spinner.style.display = "flex";
+  } else {
+    const spinner = document.getElementById("spinner-container");
+
+    // adding border bottom top for divs around spinner
+    const chatContainer = document.getElementById("chat-container");
+    chatContainer.style.borderBottom = "1px solid #dee2e6";
+    const messageInput = document.getElementById("message-input-container");
+    messageInput.style.borderTop = "1px solid #dee2e6";
+    spinner.style.display = "none";
+  }
 }
 
 function updateOnlineUsersCount(count) {

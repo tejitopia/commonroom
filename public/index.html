@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CommonRoom Chat Application</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="/socket.io/socket.io.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app-container">
-        <header id="app-header">
-            CommonRoom
-            <a href="about.html" class="about-button">About</a>
-        </header>
-        <div id="room-info">
-            <span id="participant-count">👥 4/5 People in Room</span>
-        </div>
-        <div id="online-users">
-            <span>🟢 Users Online: <span id="online-count" class="online-count">12,890</span></span>
-        </div>
-        <div id="timer">⏳ Time Left in Room: <span id="timer-value"></span></div>
-        <div id="chat-container">
-            <!-- Chat messages will go here -->
-        </div>
-        <div id="message-input-container">
-            <input type="text" id="message-input" placeholder="Type your message..." />
-            <button id="send-button">Send</button>
-        </div>
+      <header id="app-header">
+        CommonRoom
+        <a href="about.html" class="about-button">About</a>
+      </header>
+      <div id="room-info">
+        <span id="participant-count">👥 4/5 People in Room</span>
+      </div>
+      <div id="online-users">
+        <span
+          >🟢 Users Online:
+          <span id="online-count" class="online-count">12,890</span></span
+        >
+      </div>
+      <div id="timer">⏳ Time Left in Room: <span id="timer-value"></span></div>
+      <div id="chat-container">
+        <!-- Chat messages will go here -->
+      </div>
+      <div id="spinner-container">
+        <div id="spinner"></div>
+      </div>
+      <div id="message-input-container">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Type your message..."
+        />
+        <button id="send-button">Send</button>
+      </div>
     </div>
-    <footer id="app-footer">
-    </footer>
+    <footer id="app-footer"></footer>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

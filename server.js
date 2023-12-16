@@ -1,17 +1,30 @@
-const express = require("express");
-const http = require("http");
-const socketIo = require("socket.io");
-const moment = require("moment");
+import express from "express";
+import http from "http";
+import moment from "moment";
+import { Server } from "socket.io";
+import { v4 as uuidv4 } from "uuid";
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = new Server(server, {
+  cors: {
+    // TODO: add proper origin
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 
 const port = process.env.PORT || 3001;
 
 // Initialize chatRooms and roomDurations with default values
+let firstRoomDuration = Math.ceil(Math.random() * 60);
 let chatRooms = [
-  { id: 1, users: [], duration: Math.ceil(Math.random() * 60) * 60 },
+  {
+    id: uuidv4(),
+    users: [],
+    duration: firstRoomDuration,
+    endTime: new Date(new Date().getTime() + firstRoomDuration * 60000),
+  },
 ];
 
 function totalOnlineUsersCount() {
@@ -21,8 +34,6 @@ function totalOnlineUsersCount() {
   }
   return count;
 }
-
-let connectedUsers = [];
 
 app.use(express.static("public"));
 
@@ -36,11 +47,14 @@ io.on("connection", (socket) => {
 
   console.log(`User ${socket.id} assigned to room ${room.id}`);
 
+  // timeLeft is in milliseconds. If you want it in minutes, you can divide by 60*1000
   io.to(room.id).emit(
     "user-joined",
     JSON.stringify({
       username: socket.id,
-      time_left: room.duration,
+      time_left:
+        new Date(new Date(room.endTime).getTime() - new Date().getTime()) /
+        1000,
       people_in_room: room.users.length,
       total_online_users: totalOnlineUsersCount(),
       color:
@@ -51,31 +65,14 @@ io.on("connection", (socket) => {
     })
   );
 
-  //   // Emit a welcome message to the user who just joined
-  //   socket.emit("chat message", {
-  //     username: "CommonRoom",
-  //     text: "Welcome to CommonRoom! Start chatting with random people from around the world.",
-  //     timestamp: moment().valueOf(),
-  //     color: "#000000",
-  //   });
-
-  // Notify others in the room
-  //   socket.broadcast.to(roomName).emit("chat message", {
-  //     username: "CommonRoom",
-  //     text: `A new user has joined the chat.`,
-  //     timestamp: moment().valueOf(),
-  //     color: "#000000",
-  //   });
-
-  //   socket.emit("room assigned", {
-  //     room: roomName,
-  //     duration: roomDurations[roomName],
-  //   });
-
-  //   socket.on("chat message", (data) => {
-  //     console.log(`Received message in room ${roomName}:`, data);
-  //     io.to(roomName).emit("chat message", data);
-  //   });
+  socket.on("message-sent", (data) => {
+    console.log("message sent", data, " from ", socket.id);
+    const receivedData = JSON.parse(data);
+    receivedData.username = socket.id;
+    socket.broadcast
+      .to(room.id)
+      .emit("message-received", JSON.stringify(receivedData));
+  });
 
   // Add a listener for the 'disconnect' event
   socket.on("disconnect", () => {
@@ -94,12 +91,14 @@ function assignUserToRoom(userSocketId) {
   }
 
   //   if none of the rooms are available, create a new room
-  const newRoomId = chatRooms.length + 1;
+  const newRoomId = uuidv4();
+  const newRoomDuration = Math.ceil(Math.random() * 60);
 
   const newRoom = {
     id: newRoomId,
     users: [userSocketId],
-    duration: Math.ceil(Math.random() * 60) * 60,
+    duration: newRoomDuration,
+    endTime: new Date(new Date().getTime() + newRoomDuration * 60000),
   };
   chatRooms.push(newRoom);
   return newRoom;
@@ -131,6 +130,59 @@ function removeFromRoom(socketId) {
 function cleanupRoom(roomId) {
   chatRooms = chatRooms.filter((room) => room.id !== roomId);
   // console.log(`Room ${roomId} cleaned up`);
+}
+
+function reshuffleUsers(room) {
+  // Clear the timeout
+  clearTimeout(room.timeoutId);
+
+  // Find the room in the array
+  const index = chatRooms.findIndex((r) => r.id === room.id);
+
+  // If the room was found, remove it
+  if (index !== -1) {
+    chatRooms.splice(index, 1);
+  }
+
+  // Filter the rooms to only include rooms with less than 5 users
+  let roomsWithSpace = chatRooms.filter((r) => r.users.length < 5);
+
+  // If there are no rooms with space, create few new rooms
+  if (roomsWithSpace.length === 0) {
+    const randomDuration1 = Math.ceil(Math.random() * 60) * 60;
+    const randomDuration2 = Math.ceil(Math.random() * 60) * 60;
+    const randomDuration3 = Math.ceil(Math.random() * 60) * 60;
+
+    const newRooms = [
+      {
+        id: uuidv4(),
+        users: [],
+        duration: randomDuration1,
+        endTime: new Date(new Date().getTime() + randomDuration1 * 60000),
+      },
+      {
+        id: uuidv4(),
+        users: [],
+        duration: randomDuration2,
+        endTime: new Date(new Date().getTime() + randomDuration2 * 60000),
+      },
+      {
+        id: uuidv4(),
+        users: [],
+        duration: randomDuration3,
+        endTime: new Date(new Date().getTime() + randomDuration3 * 60000),
+      },
+    ];
+    chatRooms = [...chatRooms, ...newRooms];
+    roomsWithSpace = [...newRooms];
+  }
+
+  // Reshuffle the users to the rooms with space
+  room.users.forEach((user) => {
+    const otherRoom =
+      roomsWithSpace[Math.floor(Math.random() * roomsWithSpace.length)];
+    otherRoom.users.push(user);
+  });
 }
 
 server.listen(port, () => {
