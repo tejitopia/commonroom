@@ -1,0 +1,37 @@
+{
+  "name": "commonroom",
+  "version": "1.0.0",
+  "description": "\"A digital space simulating the dynamic and transient interactions of a hostel common room, where users can engage in spontaneous and ephemeral chat conversations.\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tejitopia/commonroom.git"
+  },
+  "keywords": [
+    "chat",
+    "messaging",
+    "social",
+    "real-time",
+    "communication",
+    "ephemeral",
+    "chatroom",
+    "interaction",
+    "community",
+    "websockets",
+    "nodejs",
+    "express",
+    "digital-nomad",
+    "transient",
+    "spontaneous"
+  ],
+  "author": "Jet Williams",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/tejitopia/commonroom/issues"
+  },
+  "homepage": "https://github.com/tejitopia/commonroom#readme"
+}
