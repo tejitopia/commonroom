@@ -183,3 +183,47 @@ height: 100%;
         transform: rotate(360deg);
     }
 }
+
+/* below are CSS styles for mobile optimization
+
+/* For tablets (like iPads) */
+@media (max-width: 768px) {
+    #app-container {
+        width: 70%; /* Increase width for better use of space */
+    }
+
+    #app-header {
+        font-size: 24px; /* Slightly smaller text */
+        padding: 15px 0;
+    }
+
+    #message-input-container, #chat-container {
+        font-size: 0.8em; /* Adjust font size */
+    }
+}
+
+/* For mobile phones (like iPhones) */
+@media (max-width: 480px) {
+    #app-container {
+        width: 95%; /* Use almost full width */
+    }
+
+    #app-header {
+        font-size: 20px;
+        padding: 10px 0;
+    }
+
+    .about-button {
+        font-size: 0.8em;
+        top: 10px;
+        right: 10px;
+    }
+
+    #message-input-container, #chat-container {
+        font-size: 0.75em;
+    }
+
+    #send-button, #message-input {
+        font-size: 0.8em;
+    }
+}

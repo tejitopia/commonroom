@@ -72,3 +72,29 @@ body {
     cursor: pointer;
 }
 
+/* below are CSS styles for mobile optimization
+
+/* For mobile phones (like iPhones) */
+@media (max-width: 480px) {
+    #app-container {
+        width: 95%; /* Use almost full width */
+        margin: 20px auto; /* Add some top and bottom margin */
+    }
+
+    #app-header, #about-content, .navigation-button {
+        padding: 15px; /* Add more padding */
+    }
+
+    #about-content h2 {
+        font-size: 1.2em; /* Adjust heading size for better readability */
+    }
+
+    #about-content p {
+        font-size: 0.9em; /* Adjust paragraph font size */
+    }
+
+    .button {
+        font-size: 0.9em; /* Adjust the button font size */
+        padding: 10px 15px; /* Adjust the button padding for better touch */
+    }
+}
