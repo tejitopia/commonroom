@@ -65,11 +65,21 @@ document.addEventListener("DOMContentLoaded", () => {
   socket.on("user-joined", (data) => {
     let inputData = JSON.parse(data);
     console.log(inputData);
-    console.log(`User ${data} joined the chat`);
+
+    // lazy approach to find if the user is the current user or not
+    // just count the number of chat messages, if it is one then it is the current user
+    const chatMessages = document.getElementsByClassName("chat-message");
+
+    let welcomeMessageUser = inputData.username;
+    if (chatMessages.length === 0) {
+      welcomeMessageUser = "You";
+    }
+
+    console.log(``);
 
     usersXcolorMapping[inputData.username] = inputData.color;
     startTimer(inputData.time_left);
-    appendMessage(inputData.username, ` joined the chat`, inputData.color);
+    appendMessage(welcomeMessageUser, ` joined the chat`, inputData.color);
     updateUsersCount(inputData.people_in_room);
   });
 
