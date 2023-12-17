@@ -3,6 +3,7 @@ import http from "http";
 import moment from "moment";
 import { Server } from "socket.io";
 import { v4 as uuidv4 } from "uuid";
+import { animals } from "./animals.js";
 
 const app = express();
 const server = http.createServer(app);
@@ -57,7 +58,8 @@ io.on("connection", (socket) => {
   io.to(room.id).emit(
     "user-joined",
     JSON.stringify({
-      username: socket.id,
+      username: room.users.filter((user) => user.socketID === socket.id)[0]
+        .animal,
       time_left:
         new Date(new Date(room.endTime).getTime() - new Date().getTime()) /
         1000,
@@ -74,7 +76,9 @@ io.on("connection", (socket) => {
   socket.on("message-sent", (data) => {
     console.log("message sent", data, " from ", socket.id);
     const receivedData = JSON.parse(data);
-    receivedData.username = socket.id;
+    receivedData.username = room.users.filter(
+      (userObj) => userObj.socketID === socket.id
+    )[0].animal;
     socket.broadcast
       .to(room.id)
       .emit("message-received", JSON.stringify(receivedData));
@@ -83,7 +87,7 @@ io.on("connection", (socket) => {
   // Add a listener for the 'disconnect' event
   socket.on("disconnect", () => {
     console.log(`User ${socket.id} disconnected`);
-    removeFromRoom(socket.id);
+    removeFromRoomWithAnimal(socket.id);
     io.emit(
       "total-online-users",
       JSON.stringify({ total_online_users: totalOnlineUsersCount() })
@@ -100,7 +104,10 @@ function assignUserToRoom(userSocketId) {
     // randomly select a room from the vacant rooms
     const randomRoom =
       vacantRooms[Math.floor(Math.random() * vacantRooms.length)];
-    randomRoom.users.push(userSocketId);
+    randomRoom.users.push({
+      socketID: userSocketId,
+      animal: animals[Math.floor(Math.random() * animals.length)],
+    });
     return randomRoom;
   }
 
@@ -110,7 +117,12 @@ function assignUserToRoom(userSocketId) {
 
   const newRoom = {
     id: newRoomId,
-    users: [userSocketId],
+    users: [
+      {
+        socketID: userSocketId,
+        animal: animals[Math.floor(Math.random() * animals.length)],
+      },
+    ],
     duration: newRoomDuration,
     endTime: new Date(new Date().getTime() + newRoomDuration * 60000),
   };
@@ -131,6 +143,41 @@ function removeFromRoom(socketId) {
           "user-left",
           JSON.stringify({
             username: socketId,
+            people_in_room: chatRooms[i].users.length,
+            total_online_users: totalOnlineUsersCount(),
+          })
+        );
+      }
+      break;
+    }
+  }
+}
+
+function removeFromRoomWithAnimal(socketId) {
+  for (let i = 0; i < chatRooms.length; i++) {
+    let leftUserName = "";
+    const requiredRoom = chatRooms[i].users.filter((el) => {
+      if (el.socketID === socketId) {
+        leftUserName = el.animal;
+      }
+      return el.socketID === socketId;
+    });
+
+    if (requiredRoom.length > 0) {
+      // we found the room now remove the user object
+      chatRooms[i].users = chatRooms[i].users.filter(
+        (el) => el.socketID !== socketId
+      );
+
+      //   when last user aka all people leave the room, clean up the room
+      if (chatRooms[i].users.length === 0) {
+        // console.log(`Room ${chatRooms[i].id} cleaned up`);
+        cleanupRoom(chatRooms[i].id);
+      } else {
+        io.to(chatRooms[i].id).emit(
+          "user-left",
+          JSON.stringify({
+            username: leftUserName,
             people_in_room: chatRooms[i].users.length,
             total_online_users: totalOnlineUsersCount(),
           })
