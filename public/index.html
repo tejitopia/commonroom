@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CommonRoom Chat Application</title>
+    <title>Commonroom Chat</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
     <div id="overlay-model">
-      <iframe src="/about.html" frameborder="0"></iframe> 
+      <iframe src="/about.html" frameborder="0"></iframe>
     </div>
     <div id="app-container">
-        <header id="app-header">
-            <img src="/images/common-room-header-logo.png" alt="CommonRoom Logo" id="header-logo">
-            <a href="about.html" id="about-button" class="about-button">About</a>
-        </header>
+      <header id="app-header">
+        <img
+          src="/images/common-room-header-logo.png"
+          alt="CommonRoom Logo"
+          id="header-logo"
+        />
+        <a href="about.html" id="about-button" class="about-button">About</a>
+      </header>
       <div id="room-info">
         <span id="participant-count">👥 4/5 People in Room</span>
       </div>
@@ -44,10 +49,12 @@
     <footer id="app-footer"></footer>
     <div class="disclaimer">
       <p>
-        At CommonRoom, we cherish your privacy as much as you do. All chats are ephemeral, disappearing after the session ends, leaving no digital footprint behind. Embrace the freedom of unburdened conversations; no data, no traces, just genuine interactions.
-        
+        At Commonroom, we cherish your privacy as much as you do. All chats are
+        ephemeral, disappearing after the session ends, leaving no digital
+        footprint behind. Embrace the freedom of unburdened conversations; no
+        data, no traces, just genuine interactions.
       </p>
-      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

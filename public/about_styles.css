@@ -1,111 +1,115 @@
 @font-face {
-    font-family: "PT Mono Regular";
-    src: url("/fonts/pt-mono_regular.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: "PT Mono Bold";
-    src: url("/fonts/pt-mono_bold.woff") format("woff");
-  }
+  font-family: "PT Mono Regular";
+  src: url("/fonts/pt-mono_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PT Mono Bold";
+  src: url("/fonts/pt-mono_bold.woff") format("woff");
+}
 
 body {
-    font-family: "PT Mono Regular";
-    background-color: #e9ecef;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: "PT Mono Regular";
+  background-color: #e9ecef;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #app-container {
-    width: 60%; /* Wider container for more margin */
-    max-width: 800px; /* Max width to control size on larger displays */
-    margin: 2rem auto; /* More vertical margin */
-    /* background-color: white; */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 1em; /* Slightly larger text */
-    display: flex;
-    flex-direction: column;
+  width: 60%; /* Wider container for more margin */
+  max-width: 800px; /* Max width to control size on larger displays */
+  margin: 2rem auto; /* More vertical margin */
+  /* background-color: white; */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1em; /* Slightly larger text */
+  display: flex;
+  flex-direction: column;
 }
 
 #app-header {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 30px 0; /* More padding */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  font-family: "PT Mono Bold";
+  background-color: #6052c7;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px 0; /* More padding */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #about-content {
-    text-align: left;
-    padding: 30px; /* Increased padding for content */
-    background-color: #f8f9fa; /* Background color for the content area */
-    border-bottom: 1px solid #dee2e6;
-    padding-top: 0;
+  text-align: left;
+  padding: 30px; /* Increased padding for content */
+  background-color: #f8f9fa; /* Background color for the content area */
+  border-bottom: 1px solid #dee2e6;
+  padding-top: 0;
 }
 
 #about-content h2 {
-    color: #007bff;
-    font-family: "PT Mono Bold";
-    /* margin-bottom: 20px; */
+  color: #6052c7;
+  font-family: "PT Mono Bold";
+  /* margin-bottom: 20px; */
 }
 
 #about-content p {
-    /* margin-bottom: 20px; */
-    line-height: 1.6;
-    color: #495057; /* Text color for readability */
+  /* margin-bottom: 20px; */
+  line-height: 1.6;
+  color: #495057; /* Text color for readability */
 }
 
 .navigation-button {
-    margin-top: 20px;
-    text-align: center; /* Center the button */
+  margin-top: 20px;
+  text-align: center; /* Center the button */
 }
 
 .button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  font-family: "PT Mono Bold";
+  background-color: #6052c7;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #0056b3;
-    cursor: pointer;
+  background-color: #4d42a0;
+  cursor: pointer;
 }
 
 /* below are CSS styles for mobile optimization
 
 /* For mobile phones (like iPhones) */
 @media (max-width: 480px) {
-    #app-container {
-        width: 95%; /* Use almost full width */
-        margin: 20px auto; /* Add some top and bottom margin */
-    }
+  #app-container {
+    width: 95%; /* Use almost full width */
+    margin: 20px auto; /* Add some top and bottom margin */
+  }
 
-    #app-header, #about-content, .navigation-button {
-        padding: 15px; /* Add more padding */
-    }
+  #app-header,
+  #about-content,
+  .navigation-button {
+    padding: 15px; /* Add more padding */
+  }
 
-    #about-content h2 {
-        font-size: 1.2em; /* Adjust heading size for better readability */
-    }
+  #about-content h2 {
+    font-size: 1.2em; /* Adjust heading size for better readability */
+  }
 
-    #about-content p {
-        font-size: 0.9em; /* Adjust paragraph font size */
-    }
+  #about-content p {
+    font-size: 0.9em; /* Adjust paragraph font size */
+  }
 
-    .button {
-        font-size: 0.9em; /* Adjust the button font size */
-        padding: 10px 15px; /* Adjust the button padding for better touch */
-    }
+  .button {
+    font-size: 0.9em; /* Adjust the button font size */
+    padding: 10px 15px; /* Adjust the button padding for better touch */
+  }
 }
