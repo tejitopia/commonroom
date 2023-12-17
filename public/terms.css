@@ -13,7 +13,7 @@ body {
     width: 60%; /* Wider container for more margin */
     max-width: 800px; /* Max width to control size on larger displays */
     margin: 2rem auto; /* More vertical margin */
-    /* background-color: white; */
+    background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
@@ -33,26 +33,28 @@ body {
     border-top-right-radius: 10px;
 }
 
-#about-content {
+#terms-content {
     text-align: left;
     padding: 30px; /* Increased padding for content */
+    padding-top: 0;
     background-color: #f8f9fa; /* Background color for the content area */
     border-bottom: 1px solid #dee2e6;
-    padding-top: 0;
 }
 
-#about-content h2 {
-    color: #007bff;
-    /* margin-bottom: 20px; */
-}
 
-#about-content p {
-    /* margin-bottom: 20px; */
+
+#terms-content p {
+    margin-bottom: 20px;
     line-height: 1.6;
     color: #495057; /* Text color for readability */
 }
 
 .navigation-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background-color: red; */
     margin-top: 20px;
     text-align: center; /* Center the button */
 }

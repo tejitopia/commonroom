@@ -4,9 +4,10 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 #app-container {
@@ -16,6 +17,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     font-size: 0.9em;
+    margin: auto;
 }
 
 #app-header {
@@ -135,7 +137,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
     /* background-color: red; */
     background-color: transparent;
     background-color: #f8f9fa;
@@ -143,12 +145,37 @@ body {
 }
 #spinner {
     width: 30px;
+    
     height: 30px;
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: #007bff;
     border-radius: 50%;
     animation: spin 1s ease infinite;
     background-color: #f8f9fa;
+}
+
+.disclaimer {
+    align-self: flex-end;
+    justify-self: flex-end;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.7rem;
+    color: #495057;
+}
+
+#overlay-model{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+}
+#overlay-model iframe{
+width: 100%;
+height: 100%;
 }
 
 @keyframes spin {

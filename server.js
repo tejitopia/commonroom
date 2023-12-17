@@ -18,6 +18,7 @@ const port = process.env.PORT || 3001;
 
 // Initialize chatRooms and roomDurations with default values
 let firstRoomDuration = Math.ceil(Math.random() * 60);
+// let firstRoomDuration = 1;
 let chatRooms = [
   {
     id: uuidv4(),
@@ -47,6 +48,11 @@ io.on("connection", (socket) => {
 
   console.log(`User ${socket.id} assigned to room ${room.id}`);
 
+  io.emit(
+    "total-online-users",
+    JSON.stringify({ total_online_users: totalOnlineUsersCount() })
+  );
+
   // timeLeft is in milliseconds. If you want it in minutes, you can divide by 60*1000
   io.to(room.id).emit(
     "user-joined",
@@ -56,7 +62,7 @@ io.on("connection", (socket) => {
         new Date(new Date(room.endTime).getTime() - new Date().getTime()) /
         1000,
       people_in_room: room.users.length,
-      total_online_users: totalOnlineUsersCount(),
+
       color:
         "#" +
         ("000000" + Math.floor(Math.random() * 16777215).toString(16)).slice(
@@ -78,16 +84,24 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log(`User ${socket.id} disconnected`);
     removeFromRoom(socket.id);
+    io.emit(
+      "total-online-users",
+      JSON.stringify({ total_online_users: totalOnlineUsersCount() })
+    );
   });
 });
 
 function assignUserToRoom(userSocketId) {
-  for (let i = 0; i < chatRooms.length; i++) {
-    if (chatRooms[i].users.length < 5) {
-      // Add the user to the room
-      chatRooms[i].users.push(userSocketId);
-      return chatRooms[i];
-    }
+  // Check if any of the rooms have space
+  let vacantRooms = chatRooms.filter((room) => room.users.length < 5);
+
+  // If there are rooms with space, add the user to the first room with space
+  if (vacantRooms.length > 0) {
+    // randomly select a room from the vacant rooms
+    const randomRoom =
+      vacantRooms[Math.floor(Math.random() * vacantRooms.length)];
+    randomRoom.users.push(userSocketId);
+    return randomRoom;
   }
 
   //   if none of the rooms are available, create a new room
@@ -132,58 +146,58 @@ function cleanupRoom(roomId) {
   // console.log(`Room ${roomId} cleaned up`);
 }
 
-function reshuffleUsers(room) {
-  // Clear the timeout
-  clearTimeout(room.timeoutId);
+// function reshuffleUsers(room) {
+//   // Clear the timeout
+//   clearTimeout(room.timeoutId);
 
-  // Find the room in the array
-  const index = chatRooms.findIndex((r) => r.id === room.id);
+//   // Find the room in the array
+//   const index = chatRooms.findIndex((r) => r.id === room.id);
 
-  // If the room was found, remove it
-  if (index !== -1) {
-    chatRooms.splice(index, 1);
-  }
+//   // If the room was found, remove it
+//   if (index !== -1) {
+//     chatRooms.splice(index, 1);
+//   }
 
-  // Filter the rooms to only include rooms with less than 5 users
-  let roomsWithSpace = chatRooms.filter((r) => r.users.length < 5);
+//   // Filter the rooms to only include rooms with less than 5 users
+//   let roomsWithSpace = chatRooms.filter((r) => r.users.length < 5);
 
-  // If there are no rooms with space, create few new rooms
-  if (roomsWithSpace.length === 0) {
-    const randomDuration1 = Math.ceil(Math.random() * 60) * 60;
-    const randomDuration2 = Math.ceil(Math.random() * 60) * 60;
-    const randomDuration3 = Math.ceil(Math.random() * 60) * 60;
+//   // If there are no rooms with space, create few new rooms
+//   if (roomsWithSpace.length === 0) {
+//     const randomDuration1 = Math.ceil(Math.random() * 60) * 60;
+//     const randomDuration2 = Math.ceil(Math.random() * 60) * 60;
+//     const randomDuration3 = Math.ceil(Math.random() * 60) * 60;
 
-    const newRooms = [
-      {
-        id: uuidv4(),
-        users: [],
-        duration: randomDuration1,
-        endTime: new Date(new Date().getTime() + randomDuration1 * 60000),
-      },
-      {
-        id: uuidv4(),
-        users: [],
-        duration: randomDuration2,
-        endTime: new Date(new Date().getTime() + randomDuration2 * 60000),
-      },
-      {
-        id: uuidv4(),
-        users: [],
-        duration: randomDuration3,
-        endTime: new Date(new Date().getTime() + randomDuration3 * 60000),
-      },
-    ];
-    chatRooms = [...chatRooms, ...newRooms];
-    roomsWithSpace = [...newRooms];
-  }
+//     const newRooms = [
+//       {
+//         id: uuidv4(),
+//         users: [],
+//         duration: randomDuration1,
+//         endTime: new Date(new Date().getTime() + randomDuration1 * 60000),
+//       },
+//       {
+//         id: uuidv4(),
+//         users: [],
+//         duration: randomDuration2,
+//         endTime: new Date(new Date().getTime() + randomDuration2 * 60000),
+//       },
+//       {
+//         id: uuidv4(),
+//         users: [],
+//         duration: randomDuration3,
+//         endTime: new Date(new Date().getTime() + randomDuration3 * 60000),
+//       },
+//     ];
+//     chatRooms = [...chatRooms, ...newRooms];
+//     roomsWithSpace = [...newRooms];
+//   }
 
-  // Reshuffle the users to the rooms with space
-  room.users.forEach((user) => {
-    const otherRoom =
-      roomsWithSpace[Math.floor(Math.random() * roomsWithSpace.length)];
-    otherRoom.users.push(user);
-  });
-}
+//   // Reshuffle the users to the rooms with space
+//   room.users.forEach((user) => {
+//     const otherRoom =
+//       roomsWithSpace[Math.floor(Math.random() * roomsWithSpace.length)];
+//     otherRoom.users.push(user);
+//   });
+// }
 
 server.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

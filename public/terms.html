@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About CommonRoom</title>
-    <link rel="stylesheet" href="about_styles.css">
+    <link rel="stylesheet" href="terms.css">
 </head>
 <body>
+   
     <div id="app-container">
-        <header id="app-header">About CommonRoom</header>
-        <article id="about-content">
-            <h2>Our Philosophy</h2>
+        <header id="app-header">Terms and Conditions</header>
+        <article id="terms-content">
             <p>CommonRoom is where conversations thrive in the spirit of travel and exploration. Inspired by the transient yet meaningful encounters in hostel common rooms around the world, our platform facilitates fleeting chats that leave lasting impressions.</p>
             <p>Here, every chat is an adventure. Whether you're sharing stories, exchanging travel tips, or enjoying a moment of connection, CommonRoom is your digital space to bond over the shared love of discovery.</p>
             <p>Enjoy your stay, and remember, in CommonRoom, every conversation is a journey.</p>
             <!-- Button to navigate back to the chat page -->
             <div class="navigation-button">
-                <a id="back-to-chat" href="index.html" class="button">Back to chat</a>
+                <a id="terms-link" class="button">Accept and Join the Chat</a>
             </div>
-            <script>
-                // Add event listener to the button
-                document.getElementById("back-to-chat").addEventListener("click", function(e) {
-                    // Emit a socket event to the server
-                    e.preventDefault();
-                    window.parent.document.getElementById("overlay-model").style.display = "none";
-                    
-                });
-            </script>
         </article>
     </div>
     <footer id="app-footer">
         <!-- Footer content -->
     </footer>
+    <script>
+        // Redirect to the chat page when the user clicks the "Accept and Join the Chat" button
+        document.getElementById("terms-link").addEventListener("click", function(event) {
+            event.preventDefault();
+            localStorage.setItem("termsAccepted", true);
+            window.location.href = "index.html";
+        });
+            
+    </script>
 </body>
 </html>

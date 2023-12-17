@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // we will check if the user accepted the terms or not
+  const userAcceptedTerms = localStorage.getItem("termsAccepted");
+  if (userAcceptedTerms !== "true") {
+    // if the user did not accept the terms, we will redirect him to the terms page
+    window.location.href = "/terms.html";
+  }
+
   const socket = io();
 
   const messageInput = document.getElementById("message-input");
@@ -49,6 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  socket.on("total-online-users", (data) => {
+    let inputData = JSON.parse(data);
+    console.log(inputData);
+    updateOnlineUsersCount(inputData.total_online_users);
+  });
+
   socket.on("user-joined", (data) => {
     let inputData = JSON.parse(data);
     console.log(inputData);
@@ -58,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer(inputData.time_left);
     appendMessage(inputData.username, ` joined the chat`, inputData.color);
     updateUsersCount(inputData.people_in_room);
-    updateOnlineUsersCount(inputData.total_online_users);
   });
 
   socket.on("user-left", (data) => {
@@ -66,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(`User ${data} left the chat`);
     appendMessage(inputData.username, ` left the chat`, inputData.color);
     updateUsersCount(inputData.people_in_room);
-    updateOnlineUsersCount(inputData.total_online_users);
   });
 
   //   socket.on("room assigned", (data) => {
@@ -106,6 +117,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, 1000);
   }
+
+  // adding event click event listener to the about button
+  document.getElementById("about-button").addEventListener("click", (e) => {
+    // redirecting the user to the about page
+    // window.location.href = "/about.html";
+    e.preventDefault();
+    document.getElementById("overlay-model").style.display = "block";
+  });
 });
 
 function updateUsersCount(count) {

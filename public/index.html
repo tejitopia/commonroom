@@ -8,10 +8,13 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
+    <div id="overlay-model">
+      <iframe src="/about.html" frameborder="0"></iframe>
+    </div>
     <div id="app-container">
       <header id="app-header">
         CommonRoom
-        <a href="about.html" class="about-button">About</a>
+        <a href="about.html" id="about-button" class="about-button">About</a>
       </header>
       <div id="room-info">
         <span id="participant-count">👥 4/5 People in Room</span>
@@ -39,6 +42,11 @@
       </div>
     </div>
     <footer id="app-footer"></footer>
+    <div class="disclaimer">
+      <p>
+        To emit a socket event to all connected users, you can use the `io.emit()` function. This function sends a message to all connected clients. Here's an example: In this example, 'message' is the event name and the second argument is the data you want to send. You can replace 'message' and the data with your own values.        
+      </p>
+      </div>
     <script src="script.js"></script>
   </body>
 </html>
