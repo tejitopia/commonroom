@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "PT Mono Regular";
+  src: url("/fonts/pt-mono_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PT Mono Bold";
+  src: url("/fonts/pt-mono_bold.woff") format("woff");
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #e9ecef;
@@ -52,7 +62,7 @@ body {
 }
 
 #participant-count {
-  font-weight: bold;
+  font-family: "PT Mono Bold";
 }
 
 .online-count {
