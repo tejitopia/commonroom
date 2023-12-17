@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "PT Mono Regular";
   background-color: #e9ecef;
   margin: 0;
   padding: 0;
@@ -64,10 +64,12 @@ body {
 #participant-count {
   font-family: "PT Mono Bold";
 }
-
-.online-count {
+#online-users{
+    font-family: "PT Mono Regular";
+}
+#online-count {
   color: #28a745;
-  font-weight: bold;
+  font-family: "PT Mono Bold";
 }
 
 #timer {
@@ -75,7 +77,7 @@ body {
   padding: 10px;
   background-color: #ffc107;
   color: #212529;
-  font-weight: bold;
+  font-family: "PT Mono Bold";
 }
 
 #chat-container {
@@ -101,8 +103,8 @@ body {
 }
 
 .username {
-  font-weight: bold;
   color: #007bff;
+  font-family: "PT Mono Bold";
 }
 
 #message-input-container {
@@ -118,6 +120,8 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
+
+    font-family: "PT Mono Bold";
   outline: none; /* Remove the outline when input is focused */
 }
 
@@ -130,6 +134,7 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease; /* Smooth color transition */
+  font-family: "PT Mono Bold";
 }
 
 #send-button:hover {
