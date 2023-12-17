@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function sendMessage() {
     const message = messageInput.value.trim();
     if (message !== "") {
-      appendMessage("You", message, usersXcolorMapping[socket.id]);
+      appendMessage("You", message, usersXcolorMapping["thisUser"]);
       socket.emit(
         "message-sent",
         JSON.stringify({
@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let welcomeMessageUser = inputData.username;
     if (chatMessages.length === 0) {
       welcomeMessageUser = "You";
+      usersXcolorMapping["thisUser"] = inputData.color;
     }
 
     console.log(``);
