@@ -155,7 +155,7 @@ body {
 }
 
 .disclaimer {
-    align-self: flex-end;
+    /* align-self: flex-end; */
     justify-self: flex-end;
     text-align: center;
     padding: 10px;
