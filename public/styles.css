@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: "PT Mono Regular";
+  font-family: "PT Mono Regular";
   background-color: #e9ecef;
   margin: 0;
   padding: 0;
@@ -64,8 +64,8 @@ body {
 #participant-count {
   font-family: "PT Mono Bold";
 }
-#online-users{
-    font-family: "PT Mono Regular";
+#online-users {
+  font-family: "PT Mono Regular";
 }
 #online-count {
   color: #28a745;
@@ -75,7 +75,7 @@ body {
 #timer {
   text-align: center;
   padding: 10px;
-  background-color: #ffc107;
+  background-color: #f5f546;
   color: #212529;
   font-family: "PT Mono Bold";
 }
@@ -121,7 +121,7 @@ body {
   border-radius: 4px;
   margin-right: 10px;
 
-    font-family: "PT Mono Bold";
+  font-family: "PT Mono Bold";
   outline: none; /* Remove the outline when input is focused */
 }
 
@@ -142,8 +142,9 @@ body {
 }
 
 .about-button {
-  background-color: #f8f9fa;
-  color: #6052c7;
+  font-family: "PT Mono Bold";
+  background-color: #6052c7;
+  color: #ffffff;
   padding: 8px 16px;
   text-decoration: none;
   border-radius: 4px;

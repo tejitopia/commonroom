@@ -1,36 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About CommonRoom</title>
-    <link rel="stylesheet" href="terms.css">
-</head>
-<body>
-   
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZNMYQ92W4S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ZNMYQ92W4S");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page Title -->
+    <title>Commonroom: Terms & Conditions</title>
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Read the Terms and Conditions of Commonroom - a place for transient, anonymous group chats that emulate the unique experience of hostel common rooms."
+    />
+
+    <link rel="stylesheet" href="terms.css" />
+  </head>
+  <body>
     <div id="app-container">
-        <header id="app-header">Terms and Conditions</header>
-        <article id="terms-content">
-            <p>CommonRoom is where conversations thrive in the spirit of travel and exploration. Inspired by the transient yet meaningful encounters in hostel common rooms around the world, our platform facilitates fleeting chats that leave lasting impressions.</p>
-            <p>Here, every chat is an adventure. Whether you're sharing stories, exchanging travel tips, or enjoying a moment of connection, CommonRoom is your digital space to bond over the shared love of discovery.</p>
-            <p>Enjoy your stay, and remember, in CommonRoom, every conversation is a journey.</p>
-            <!-- Button to navigate back to the chat page -->
-            <div class="navigation-button">
-                <a id="terms-link" class="button">Accept and Join the Chat</a>
-            </div>
-        </article>
+      <header id="app-header">📄 Terms & Conditions</header>
+      <article id="terms-content">
+        <h1>Welcome to Commonroom!</h1>
+        <p>
+          Each chat here is a transient journey, echoing the ephemeral nature of
+          hostel common rooms. Our platform offers a space for serendipitous and
+          fleeting group connections.
+        </p>
+
+        <p>
+          As you begin making anonymous friends on Commonroom, we ask that you
+          navigate with respect and consideration. In this shared space, we
+          uphold a few simple rules to ensure that everyone enjoys their time in
+          our rooms:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Acceptance of Terms:</strong> By accessing or using
+            Commonroom, you agree to be bound by these terms and conditions. If
+            you do not agree with any part of these terms, please do not use our
+            platform.
+          </li>
+          <li>
+            <strong>User Conduct:</strong> We believe in the power of respectful
+            and positive interactions. Any form of harassment, hate speech, or
+            disrespectful behavior will not be tolerated.
+          </li>
+          <li>
+            <strong>Age Requirement:</strong> Users must be 18 years or older to
+            use Commonroom. Minors are not permitted to use our platform.
+          </li>
+          <li>
+            <strong>Content Guidelines:</strong> Share content that is
+            appropriate and respectful. Any content deemed offensive, harmful,
+            or inappropriate will be removed, and may result in an IP ban.
+          </li>
+        </ol>
+
+        <p>
+          Embark on your Commonroom adventure with an open heart and a curious
+          mind. Happy chatting!
+        </p>
+        <p>
+          <em>PS: Nothing lasts forever.</em>
+        </p>
+        <!-- Button to navigate back to the chat page -->
+        <div class="navigation-button">
+          <a id="terms-link" class="button"
+            >I Accept the Terms & Conditions. Let me Join the Chat!
+          </a>
+        </div>
+      </article>
     </div>
     <footer id="app-footer">
-        <!-- Footer content -->
+      <!-- Footer content -->
     </footer>
     <script>
-        // Redirect to the chat page when the user clicks the "Accept and Join the Chat" button
-        document.getElementById("terms-link").addEventListener("click", function(event) {
-            event.preventDefault();
-            localStorage.setItem("termsAccepted", true);
-            window.location.href = "index.html";
+      // Redirect to the chat page when the user clicks the "Accept and Join the Chat" button
+      document
+        .getElementById("terms-link")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          localStorage.setItem("termsAccepted", true);
+          window.location.href = "index.html";
         });
-            
     </script>
-</body>
+  </body>
 </html>

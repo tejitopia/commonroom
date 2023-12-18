@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About CommonRoom</title>
-    <link rel="stylesheet" href="about_styles.css">
-</head>
-<body>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZNMYQ92W4S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ZNMYQ92W4S");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page Title -->
+    <title>Commonroom: Learn about our platform</title>
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Learn about Commonroom, the digital hub for ephemeral and authentic group chats, inspired by the dynamic and diverse interactions of hostel common rooms."
+    />
+
+    <link rel="stylesheet" href="about_styles.css" />
+  </head>
+  <body>
     <div id="app-container">
-        <header id="app-header">About CommonRoom</header>
-        <article id="about-content">
-            <h2>Our Philosophy</h2>
-            <p>CommonRoom is where conversations thrive in the spirit of travel and exploration. Inspired by the transient yet meaningful encounters in hostel common rooms around the world, our platform facilitates fleeting chats that leave lasting impressions.</p>
-            <p>Here, every chat is an adventure. Whether you're sharing stories, exchanging travel tips, or enjoying a moment of connection, CommonRoom is your digital space to bond over the shared love of discovery.</p>
-            <p>Enjoy your stay, and remember, in CommonRoom, every conversation is a journey.</p>
-            <!-- Button to navigate back to the chat page -->
-            <div class="navigation-button">
-                <a id="back-to-chat" href="index.html" class="button">Back to chat</a>
-            </div>
-            <script>
-                // Add event listener to the button
-                document.getElementById("back-to-chat").addEventListener("click", function(e) {
-                    // Emit a socket event to the server
-                    e.preventDefault();
-                    window.parent.document.getElementById("overlay-model").style.display = "none";
-                    
-                });
-            </script>
-        </article>
+      <header id="app-header">About Commonroom</header>
+      <article id="about-content">
+        <h2>Our Philosophy</h2>
+        <p>
+          Commonroom is where conversations thrive in the spirit of travel and
+          exploration. Inspired by the transient yet meaningful encounters in
+          hostel common rooms around the world, our platform facilitates
+          fleeting chats that leave lasting impressions.
+        </p>
+        <p>
+          Here, every chat is an adventure. Whether you're sharing stories,
+          exchanging travel tips, or enjoying a moment of connection, Commonroom
+          is your digital space to bond over the shared love of discovery.
+        </p>
+        <p>
+          Enjoy your stay, and remember, in Commonroom, every conversation is a
+          journey.
+        </p>
+        <!-- Button to navigate back to the chat page -->
+        <div class="navigation-button">
+          <a id="back-to-chat" href="index.html" class="button">Back to chat</a>
+        </div>
+        <script>
+          // Add event listener to the button
+          document
+            .getElementById("back-to-chat")
+            .addEventListener("click", function (e) {
+              // Emit a socket event to the server
+              e.preventDefault();
+              window.parent.document.getElementById(
+                "overlay-model"
+              ).style.display = "none";
+            });
+        </script>
+      </article>
     </div>
     <footer id="app-footer">
-        <!-- Footer content -->
+      <!-- Footer content -->
     </footer>
-</body>
+  </body>
 </html>
