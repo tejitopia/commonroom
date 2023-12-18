@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatContainer = document.getElementById("chat-container");
   const roomInfo = document.getElementById("room-info");
   const usersXcolorMapping = {};
+  let currentUserIs = "";
 
   function appendMessage(username, message, color) {
     const chatMessage = document.createElement("div");
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (chatMessages.length === 0) {
       welcomeMessageUser = "You";
       usersXcolorMapping["thisUser"] = inputData.color;
+      currentUserIs = inputData.username;
     }
 
     console.log(``);
@@ -87,7 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
   socket.on("user-left", (data) => {
     let inputData = JSON.parse(data);
     console.log(`User ${data} left the chat`);
-    appendMessage(inputData.username, ` left the chat`, inputData.color);
+    if (currentUserIs === inputData.username) {
+      appendMessage(
+        inputData.username,
+        ` left the chat`,
+        usersXcolorMapping["thisUser"]
+      );
+    } else {
+      appendMessage(
+        inputData.username,
+        ` left the chat`,
+        usersXcolorMapping[inputData.username]
+      );
+    }
     updateUsersCount(inputData.people_in_room);
   });
 
