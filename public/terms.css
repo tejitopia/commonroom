@@ -23,7 +23,7 @@ body {
 }
 
 #app-header {
-  background-color: #007bff;
+  background-color: #6052c7;
   color: white;
   text-align: center;
   font-size: 30px;
@@ -58,7 +58,7 @@ body {
 }
 
 .button {
-  background-color: #007bff;
+  background-color: #6052c7;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -68,13 +68,52 @@ body {
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #6052c7;
   cursor: pointer;
 }
 
 /* below are CSS styles for mobile optimization
 
 /* For mobile phones (like iPhones) */
+@media (max-width: 900px){
+    #app-container {
+        width: 80%; /* Use almost full width */
+        margin: 20px auto; /* Add some top and bottom margin */
+    }
+}
+
+@media (max-width: 750px){
+    #app-container {
+        width: 85%; /* Use almost full width */
+        margin: 20px auto; /* Add some top and bottom margin */
+    }
+    #app-header{
+        font-size: 1.8rem;
+    }
+
+    #about-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 550px){
+    #app-header{
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+
+    #about-content h2 {
+        font-size: 1.1rem;
+    }
+
+    #about-content p {
+        font-size: 0.8rem;
+    }
+    .button {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+}
 @media (max-width: 480px) {
   #app-container {
     width: 95%; /* Use almost full width */
