@@ -33,6 +33,7 @@ body {
 }
 
 #app-header {
+
   font-family: "PT Mono Bold";
   background-color: #6052c7;
   color: white;
@@ -53,9 +54,11 @@ body {
 }
 
 #about-content h2 {
+
   color: #6052c7;
   font-family: "PT Mono Bold";
   /* margin-bottom: 20px; */
+
 }
 
 #about-content p {
@@ -70,6 +73,7 @@ body {
 }
 
 .button {
+
   font-family: "PT Mono Bold";
   background-color: #6052c7;
   color: white;
@@ -78,6 +82,7 @@ body {
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+
 }
 
 .button:hover {
@@ -88,6 +93,47 @@ body {
 /* below are CSS styles for mobile optimization
 
 /* For mobile phones (like iPhones) */
+@media (max-width: 900px){
+    #app-container {
+        width: 80%; /* Use almost full width */
+        margin: 20px auto; /* Add some top and bottom margin */
+    }
+}
+
+@media (max-width: 750px){
+    #app-container {
+        width: 85%; /* Use almost full width */
+        margin: 20px auto; /* Add some top and bottom margin */
+    }
+    #app-header{
+        font-size: 1.8rem;
+    }
+
+    #about-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 550px){
+    #app-header{
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+
+    #about-content h2 {
+        font-size: 1.1rem;
+    }
+
+    #about-content p {
+        font-size: 0.8rem;
+    }
+    .button {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+}
+
+
 @media (max-width: 480px) {
   #app-container {
     width: 95%; /* Use almost full width */

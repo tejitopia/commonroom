@@ -215,9 +215,33 @@ body {
 /* below are CSS styles for mobile optimization
 
 /* For tablets (like iPads) */
+
+@media (max-width: 1400px){
+  #app-container {
+    width: 50%; /* Increase width for better use of space */
+  }
+  #header-logo {
+    height: 35px; /* Adjust the height as needed */
+  }
+}
+
+@media (max-width: 1000px) {
+  #app-container {
+    width: 60%; /* Increase width for better use of space */
+  }
+  #header-logo {
+    height: 30px; /* Adjust the height as needed */
+  }
+}
+
 @media (max-width: 768px) {
   #app-container {
     width: 70%; /* Increase width for better use of space */
+    font-size: 0.8rem;
+  }
+
+  #header-logo {
+    height: 25px; /* Adjust the height as needed */
   }
 
   #app-header {
@@ -235,6 +259,22 @@ body {
 @media (max-width: 480px) {
   #app-container {
     width: 95%; /* Use almost full width */
+  }
+
+  #timer{
+    font-size: 0.8em;
+  }
+
+  #online-users{
+    font-size: 0.8em;
+  }
+
+  #participant-count{
+    font-size: 0.8em;
+  }
+
+  #header-logo {
+    height: 18px; /* Adjust the height as needed */
   }
 
   #app-header {
@@ -255,6 +295,6 @@ body {
 
   #send-button,
   #message-input {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
 }
