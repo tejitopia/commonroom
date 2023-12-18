@@ -107,22 +107,26 @@ document.addEventListener("DOMContentLoaded", () => {
   let interval;
   function startTimer(duration) {
     clearInterval(interval);
-    let minutes = Math.floor(duration / 60);
-    let seconds = Math.floor(duration) % 60;
-
-    const timerElement = document.getElementById("timer");
-    timerElement.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+    let minutes, seconds;
 
     interval = setInterval(() => {
-      if (duration > 0) {
-        minutes = Math.floor(duration / 60);
-        seconds = Math.floor(duration) % 60;
+      // Calculate minutes and seconds from duration
+      minutes = Math.floor(duration / 60);
+      seconds = Math.floor(duration % 60);
 
-        timerElement.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+      // Update the 'timer-value' span
+      const timerValueElement = document.getElementById("timer-value");
+      timerValueElement.textContent = `${minutes}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
 
-        duration--;
-      } else {
+      // Decrease duration
+      duration--;
+
+      // If the duration is zero or less, clear the interval and reset the timer
+      if (duration < 0) {
         clearInterval(interval);
+        timerValueElement.textContent = "0:00";
         // Redirect user to a new room when the timer ends
         window.location.reload();
       }
