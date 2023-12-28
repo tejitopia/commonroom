@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // we will check if the user accepted the terms or not
   const userAcceptedTerms = localStorage.getItem("termsAccepted");
   if (userAcceptedTerms !== "true") {
-    // if the user did not accept the terms, we will redirect him to the terms page
     window.location.href = "/terms.html";
   }
 
@@ -17,9 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function appendMessage(username, message, color) {
     const chatMessage = document.createElement("div");
+
+    const usernameSpan = document.createElement("span");
+    usernameSpan.classList.add("username");
+    usernameSpan.style.color = color;
+    usernameSpan.textContent = `${username}: `;
+
+    chatMessage.appendChild(usernameSpan);
+    chatMessage.appendChild(document.createTextNode(message));
+
     chatMessage.classList.add("chat-message");
-    chatMessage.innerHTML = `<span class="username" style="color: ${color};">${username}:</span> ${message}`;
+
     chatContainer.appendChild(chatMessage);
+
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 
