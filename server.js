@@ -4,7 +4,19 @@ import moment from "moment";
 import { Server } from "socket.io";
 import { v4 as uuidv4 } from "uuid";
 import { animals } from "./animals.js";
+import rateLimit from "express-rate-limit";
 
+
+const colors = [
+  "#309617",
+  "#d42d2b",
+  "#5a46b6",
+  "#c08c0d",
+  "#b93c9d",
+  "#0d6b6a",
+  "#4d4d4d",
+  "#ff7f50",
+]
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -65,16 +77,18 @@ io.on("connection", (socket) => {
         1000,
       people_in_room: room.users.length,
 
-      color:
-        "#" +
-        ("000000" + Math.floor(Math.random() * 16777215).toString(16)).slice(
-          -6
-        ),
+      color: colors[Math.floor(Math.random() * colors.length)],
     })
   );
 
   socket.on("message-sent", (data) => {
-    console.log("message sent", data, " from ", socket.id);
+    /* if (Math.random() < 0.1) {
+      return io.to(socket.id).emit("rate-limit-exceeded", {
+        message: "Rate limit exceeded. Slow down!",
+      });
+    } */
+    console.log("message sent", data, " from ", socket.id);4
+
     const receivedData = JSON.parse(data);
     receivedData.username = room.users.filter(
       (userObj) => userObj.socketID === socket.id
@@ -97,7 +111,7 @@ io.on("connection", (socket) => {
 
 function assignUserToRoom(userSocketId) {
   // Check if any of the rooms have space
-  let vacantRooms = chatRooms.filter((room) => room.users.length < 5);
+  let vacantRooms = chatRooms.filter((room) => room.users.length < 8);
 
   // If there are rooms with space, add the user to the first room with space
   if (vacantRooms.length > 0) {

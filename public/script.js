@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const roomInfo = document.getElementById("room-info");
   const usersXcolorMapping = {};
   let currentUserIs = "";
+  let me = "";
 
   function appendMessage(username, message, color) {
     const chatMessage = document.createElement("div");
@@ -19,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const usernameSpan = document.createElement("span");
     usernameSpan.classList.add("username");
     usernameSpan.style.color = color;
+    if (username === "You") {
+      username = `${me} (You)`
+      usernameSpan.style.fontWeight = "bold";
+    }
     usernameSpan.textContent = `${username}: `;
 
     chatMessage.appendChild(usernameSpan);
@@ -55,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  socket.on("rate-limit-exceeded", (data) => {
+    alert(data.message);
+  });
+  
   socket.on("message-received", (data) => {
     let inputData = JSON.parse(data);
     console.log(inputData);
@@ -71,15 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
     updateOnlineUsersCount(inputData.total_online_users);
   });
 
+  let setMe = false;
   socket.on("user-joined", (data) => {
+
     let inputData = JSON.parse(data);
     console.log(inputData);
+
+    if (!setMe) {
+      me = inputData.username;
+      setMe = true;
+    }
+
 
     // lazy approach to find if the user is the current user or not
     // just count the number of chat messages, if it is one then it is the current user
     const chatMessages = document.getElementsByClassName("chat-message");
 
-    let welcomeMessageUser = inputData.username;
+
+    console.log({ inputData, chatMessages })
     if (chatMessages.length === 0) {
       welcomeMessageUser = "You";
       usersXcolorMapping["thisUser"] = inputData.color;
@@ -90,26 +108,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     usersXcolorMapping[inputData.username] = inputData.color;
     startTimer(inputData.time_left);
-    appendMessage(welcomeMessageUser, ` joined the chat`, inputData.color);
+    //appendMessage(welcomeMessageUser, ` joined the chat`, inputData.color);
     updateUsersCount(inputData.people_in_room);
   });
 
   socket.on("user-left", (data) => {
     let inputData = JSON.parse(data);
     console.log(`User ${data} left the chat`);
-    if (currentUserIs === inputData.username) {
-      appendMessage(
+    /* if (currentUserIs === inputData.username) {
+     appendMessage(
         inputData.username,
         ` left the chat`,
         usersXcolorMapping["thisUser"]
-      );
+      ); 
     } else {
       appendMessage(
         inputData.username,
         ` left the chat`,
         usersXcolorMapping[inputData.username]
       );
-    }
+    } */
     updateUsersCount(inputData.people_in_room);
   });
 
@@ -166,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function updateUsersCount(count) {
   const usersCount = document.getElementById("participant-count");
-  usersCount.innerHTML = `👥 ${count}/5 People in Room`;
+  usersCount.innerHTML = `👥 ${count}/8 People in Room`;
 
   if (count === 1) {
     const spinner = document.getElementById("spinner-container");
