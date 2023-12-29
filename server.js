@@ -1,11 +1,9 @@
 import express from "express";
 import http from "http";
-import moment from "moment";
 import { Server } from "socket.io";
 import { v4 as uuidv4 } from "uuid";
 import { animals } from "./animals.js";
 import rateLimit from "express-rate-limit";
-
 
 const colors = [
   "#309617",
@@ -41,6 +39,14 @@ let chatRooms = [
   },
 ];
 
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 75,
+});
+
+app.use(limiter);
+
 function totalOnlineUsersCount() {
   let count = 0;
   for (let i = 0; i < chatRooms.length; i++) {
@@ -57,6 +63,7 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   const room = assignUserToRoom(socket.id);
+  const userMessages = [];
   socket.join(room.id);
 
   console.log(`User ${socket.id} assigned to room ${room.id}`);
@@ -82,12 +89,21 @@ io.on("connection", (socket) => {
   );
 
   socket.on("message-sent", (data) => {
-    /* if (Math.random() < 0.1) {
-      return io.to(socket.id).emit("rate-limit-exceeded", {
-        message: "Rate limit exceeded. Slow down!",
-      });
-    } */
-    console.log("message sent", data, " from ", socket.id);4
+    // add rate limit for messages
+    if (userMessages.length > 0) {
+      const lastMessageTime = userMessages[userMessages.length - 1].time;
+      const currentTime = new Date().getTime();
+      if (currentTime - lastMessageTime < 1000) {
+        return io.to(socket.id).emit(
+          "rate-limit",
+          JSON.stringify({
+            message: "Rate limit exceeded",
+          })
+        );
+      }
+    }
+
+    console.log("message sent", data, " from ", socket.id)
 
     const receivedData = JSON.parse(data);
     receivedData.username = room.users.filter(
@@ -96,6 +112,10 @@ io.on("connection", (socket) => {
     socket.broadcast
       .to(room.id)
       .emit("message-received", JSON.stringify(receivedData));
+
+    userMessages.push({
+      time: new Date().getTime(),
+    });
   });
 
   // Add a listener for the 'disconnect' event
@@ -111,7 +131,7 @@ io.on("connection", (socket) => {
 
 function assignUserToRoom(userSocketId) {
   // Check if any of the rooms have space
-  let vacantRooms = chatRooms.filter((room) => room.users.length < 8);
+  let vacantRooms = chatRooms.filter((room) => (room.users.length < 8) && (new Date(room.endTime).getTime() > new Date().getTime()));
 
   // If there are rooms with space, add the user to the first room with space
   if (vacantRooms.length > 0) {

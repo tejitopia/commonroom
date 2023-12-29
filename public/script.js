@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const usersXcolorMapping = {};
   let currentUserIs = "";
   let me = "";
+  let canSendMessage = true;
 
   function appendMessage(username, message, color) {
     const chatMessage = document.createElement("div");
@@ -30,15 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
     chatMessage.appendChild(document.createTextNode(message));
 
     chatMessage.classList.add("chat-message");
+    const isScrolledToBottom =
+    chatContainer.scrollHeight - chatContainer.clientHeight <=
+    chatContainer.scrollTop + 1;
+
 
     chatContainer.appendChild(chatMessage);
 
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    chatContainer.appendChild(chatMessage);
+
+    if (isScrolledToBottom || username.includes("You")) {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
   }
 
   function sendMessage() {
     const message = messageInput.value.trim();
-    if (message !== "") {
+    if (message !== "" && canSendMessage) {
       appendMessage("You", message, usersXcolorMapping["thisUser"]);
       socket.emit(
         "message-sent",
@@ -48,6 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       messageInput.value = "";
     }
+
+    canSendMessage = false;
+    const sendButton = document.getElementById("send-button");
+    sendButton.disabled = true;
+    setTimeout(() => {
+      canSendMessage = true;
+      sendButton.disabled = false;
+    }, 2000);
   }
 
   sendButton.addEventListener("click", () => {
