@@ -149,11 +149,13 @@ Co-Founder & CTO - [Alen Velocity](https://github.com/AlenVelocity)
 
 ## Roadmap
 
-- [ ] Migrate to Next.js & React
+- [ ] Refactor Script.js
+- [ ] Migrate to React
 - [ ] Topic Specific Rooms
 - [ ] Moderation Tools
 - [ ] Darkmode
 - [ ] Mini Games
+- [ ] Mobile App
 
 See the [open issues](https://github.com/tejitopia/commonroom/issues) for a full list of proposed features (and known issues).
 
@@ -198,9 +200,9 @@ Alen - [@AlenVelocity](https://x.com/alenvelocity)
 
 ## Acknowledgments
 
-- []()
-- []()
-- []()
+- Thank you to my mum & dad for the endless love and support
+- Thank you to The Internet for providing us with free resources to learn how to create anything we want
+- Thank you to all the contributers who make building projects like this possible
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
