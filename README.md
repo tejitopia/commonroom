@@ -154,9 +154,8 @@ Co-Founder & CTO - [Alen Velocity](https://github.com/AlenVelocity)
 - [ ] Moderation Tools
 - [ ] Darkmode
 - [ ] Mini Games
-  - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/tejitopia/commonroom/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,6 +207,8 @@ Alen - [@AlenVelocity](https://x.com/alenvelocity)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
+<!--
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
@@ -221,6 +222,8 @@ Alen - [@AlenVelocity](https://x.com/alenvelocity)
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
+
+-->
 
 <!-- ABOUT THIS README.MD -->
 <!--
