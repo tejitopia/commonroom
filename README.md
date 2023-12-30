@@ -38,10 +38,10 @@
   <p align="center">
     Commonroom is an ephemeral chatroom for strangers
     <br />
-    <a href="https://www.youtube.com/watch?v=HwTS8wVv7iE"><strong>Learn about the origins of Commonroom »</strong></a>
+    <a href="https://www.youtube.com/watch?v=HwTS8wVv7iE"><strong>The origins of Commonroom »</strong></a>
     <br />
     <br />
-    <a href="https://commonroom.chat">View Site</a>
+    <a href="https://commonroom.chat">Visit Site</a>
     ·
     <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
     ·
@@ -79,8 +79,6 @@
 
 ## About Commonroom
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 Commonroom is an ephemeral text based chat application that revives the essence of fleeting, meaningful interactions reminiscent of hostel common rooms. It's a digital space where individuals can come together as a small group, hangout and share experiences, albeit briefly.
 
 For context the application was originally built by TEJI aka Jet Williams, inspired by his travels around the world he wanted to replicate his experiances staying in hostels and hanging out with other travelers in an online space. Commonroom's core feature is the time limited chatrooms with small groups of strangers which self destruct at random intervals.
@@ -90,6 +88,17 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
+
+- ![Static Badge](https://img.shields.io/badge/HTML-8A2BE2?style=html)
+
+- [![HTML][Next.js]][Next-url]
+- [![React][React.js]][React-url]
+- [![Vue][Vue.js]][Vue-url]
+- [![Angular][Angular.io]][Angular-url]
+- [![Svelte][Svelte.dev]][Svelte-url]
+- [![Laravel][Laravel.com]][Laravel-url]
+- [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+- [![JQuery][JQuery.com]][JQuery-url]
 
 - [![Next][Next.js]][Next-url]
 - [![React][React.js]][React-url]
