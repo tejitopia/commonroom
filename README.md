@@ -95,33 +95,23 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This section outlines how to set up the Commonroom locally. By following these instructions, you'll have a local copy of the project up and running on your machine.
 
-### Prerequisites
+### Prerequisites and Installation
 
-This is an example of how to list things you need to use the software and how to install them.
+1. **Install Node.js and npm**: Node.js is the runtime environment required to run JavaScript on the server side, and npm is a package manager for JavaScript. Install them from the [Node.js official website](https://nodejs.org/).
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+2. **Clone the repository**:
 
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/tejitopia/commonroom.git
    ```
-3. Install NPM packages
-   ```sh
+
+3. **Navigate to the project directory**:
+   cd commonroom
+
+4. **Install NPM packages**:
    npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +129,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Room Topics
+- [ ] Migrate to Next.js & React
+- [ ] Topic Specific Rooms
+- [ ] Moderation Tools
 - [ ] Darkmode
 - [ ] Mini Games
   - [ ] Nested Feature
