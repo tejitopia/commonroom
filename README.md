@@ -89,7 +89,11 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 
 ### Built With
 
-- ![Static Badge](https://img.shields.io/badge/HTML-8A2BE2?style=html)
+- ![Static Badge](https://img.shields.io/badge/HTML-6052C7?style=html)
+- ![Static Badge](https://img.shields.io/badge/CSS-6052C7?style=html)
+- ![Static Badge](https://img.shields.io/badge/JavaScript-6052C7?style=html)
+- ![Static Badge](https://img.shields.io/badge/Node.js-6052C7?style=html)
+- ![Static Badge](https://img.shields.io/badge/Heroku-6052C7?style=html)
 
 - [![HTML][Next.js]][Next-url]
 - [![React][React.js]][React-url]
