@@ -139,8 +139,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Team
 
-Founder & CEO - [TEJI] (https://teji.io)
-Co-Founder & CTO - [Alen Yohannan] (https://github.com/AlenVelocity)
+Founder & CEO - [TEJI](https://teji.io)
+
+Co-Founder & CTO - [Alen Yohannan](https://github.com/AlenVelocity)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
