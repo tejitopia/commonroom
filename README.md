@@ -56,7 +56,7 @@ Add in shields once we have contributers and users using Commonroom
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites-and-installation">Prerequisites and Installation</a></li>
+        <li><a href="#prerequisites-&-installation">Prerequisites & Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -96,7 +96,7 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 
 This section outlines how to set up the Commonroom locally. By following these instructions, you'll have a local copy of the project up and running on your machine.
 
-### Prerequisites and Installation
+### Prerequisites & Installation
 
 1. **Install Node.js and npm**: Node.js is the runtime environment required to run JavaScript on the server side, and npm is a package manager for JavaScript. Install them from the [Node.js official website](https://nodejs.org/).
 
