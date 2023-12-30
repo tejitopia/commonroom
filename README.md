@@ -38,7 +38,7 @@
   <p align="center">
     Commonroom is an ephemeral chatroom for strangers
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://www.youtube.com/watch?v=HwTS8wVv7iE"><strong>Learn about the origins of Commonroom »</strong></a>
     <br />
     <br />
     <a href="https://commonroom.chat">View Site</a>
@@ -54,7 +54,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">About Commonroom</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -75,11 +75,13 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
+<!-- ABOUT COMMONROOM -->
 
-## About The Project
+## About Commonroom
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+Commonroom is an ephemeral text based chat application that revives the essence of fleeting, meaningful interactions reminiscent of hostel common rooms. It's a digital space where individuals can come together as a small group, hangout and share experiences, albeit briefly.
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
