@@ -83,6 +83,10 @@
 
 Commonroom is an ephemeral text based chat application that revives the essence of fleeting, meaningful interactions reminiscent of hostel common rooms. It's a digital space where individuals can come together as a small group, hangout and share experiences, albeit briefly.
 
+For context the application was originally built by TEJI aka Jet Williams, inspired by his travels around the world he wanted to replicate his experiances staying in hostels and hanging out with other travelers in an online space. Commonroom's core feature is the time limited chatrooms with small groups of strangers which self destruct at random intervals.
+
+At Commonroom, we cherish your privacy as much as you do. All chats are ephemeral, disappearing after the session ends, leaving no digital footprint behind. Embrace the freedom of unburdened conversations; no data, no traces, just genuine interactions.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
