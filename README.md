@@ -86,6 +86,8 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 - ![Static Badge](https://img.shields.io/badge/CSS-6052C7?style=html)
 - ![Static Badge](https://img.shields.io/badge/JavaScript-6052C7?style=html)
 - ![Static Badge](https://img.shields.io/badge/Node.js-6052C7?style=html)
+- ![Static Badge](https://img.shields.io/badge/Express.js-6052C7?style=html)
+- ![Static Badge](https://img.shields.io/badge/Socket.io-6052C7?style=html)
 - ![Static Badge](https://img.shields.io/badge/Heroku-6052C7?style=html)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
