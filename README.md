@@ -56,8 +56,7 @@ Add in shields once we have contributers and users using Commonroom
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites-and-installation">Prerequisites and Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -113,7 +112,7 @@ This section outlines how to set up the Commonroom locally. By following these i
    cd commonroom
    ```
 
-4. **Install NPM packages**:
+4. **Install NPM packages**: This will install all the dependencies, including Express.js and Socket.io, needed for Commonroom.
 
    ```sh
    npm install
