@@ -98,7 +98,7 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 
 ## Getting Started
 
-This section outlines how to set up the Commonroom locally. By following these instructions, you'll have a local copy of the project up and running on your machine.
+This section outlines how to set up Commonroom locally. By following these instructions, you'll have a local copy of the project up and running on your machine.
 
 ### Installation
 
