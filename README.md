@@ -37,9 +37,9 @@ Add in shields once we have contributers and users using Commonroom
     <br />
     <a href="https://commonroom.chat">Visit Site</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/tejitopia/commonroom/labels/bug">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/tejitopia/commonroom/labels/enhancement">Request Feature</a>
   </p>
 </div>
 
