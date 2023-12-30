@@ -167,14 +167,42 @@ See the [open issues](https://github.com/tejitopia/commonroom/issues) for a full
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make Commonroom better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give Commonroom a star! Thanks again!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Contribution Workflow
+
+Here's how we suggest you go about proposing a change to Commonroom:
+
+1. **Fork the Project**: Start by forking the repository and then clone it locally.
+2. **Create your Branch**: For new features and non-urgent bug fixes, branch off `develop`.
+   - For features: `git checkout -b feature/YourAmazingFeature develop`
+   - For bug fixes: `git checkout -b bugfix/YourBugFix develop`
+   - For urgent hotfixes needed on master: `git checkout -b hotfix/YourHotfix master`
+3. **Commit your Changes**: Commit your changes with a clear and descriptive message.
+   - Example: `git commit -m 'Add some AmazingFeature'`
+4. **Push to Your Fork**: Push your changes to your fork.
+   - Example: `git push origin feature/YourAmazingFeature`
+5. **Open a Pull Request**: Go to the original project and open a pull request from your feature, bugfix, or hotfix branch to the appropriate branch on the main repository.
+   - For features and bug fixes, target the `develop` branch.
+   - For hotfixes, target the `master` branch.
+6. **Code Review**: Wait for the code review and address any feedback.
+
+### Before Submitting
+
+Before submitting your pull request, please ensure the following:
+
+- Your code follows Commonroom's style and contribution guidelines.
+- Your changes are well-documented and include any necessary updates to documentation.
+- You've tested your changes thoroughly.
+
+### Pull Request Process
+
+Once you've submitted your pull request, we will review your code. We may suggest changes, improvements, or ask for further clarification. This is a big part of how open source works, so don't be discouraged! This feedback loop is valuable and helps everyone learn and improve.
+
+Once your pull request is approved and merged, your contributions will be publicly acknowledged.
+
+Thank you for your contributions, and we look forward to seeing your innovative and fantastic work!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
