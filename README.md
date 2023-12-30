@@ -1,14 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -19,12 +9,16 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
+<!--
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+
+Add in shields once we have contributers and users using Commonroom
+>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -87,6 +81,13 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- BANNER IMAGE -->
+<br />
+<div align="center">
+  <a href="https://github.com/tejitopia/commonroom">
+    <img src="public/images/banner-image.png" alt="Commonroom Banner Image" width="900" height="207">
+  </a>
+
 ### Built With
 
 - ![Static Badge](https://img.shields.io/badge/HTML-6052C7?style=html)
@@ -145,9 +146,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
+- [ ] Room Topics
+- [ ] Darkmode
+- [ ] Mini Games
   - [ ] Nested Feature
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
@@ -215,3 +216,9 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
+
+<!-- ABOUT THIS README.MD -->
+<!--
+I used Best-README-Template by vi-dev0 to help write Commonroom's README.
+You can checkout the template here: https://github.com/othneildrew/Best-README-Template/tree/master
+-->
