@@ -83,8 +83,6 @@
 
 Commonroom is an ephemeral text based chat application that revives the essence of fleeting, meaningful interactions reminiscent of hostel common rooms. It's a digital space where individuals can come together as a small group, hangout and share experiences, albeit briefly.
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
