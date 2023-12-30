@@ -81,13 +81,6 @@ At Commonroom, we cherish your privacy as much as you do. All chats are ephemera
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- BANNER IMAGE -->
-<br />
-<div align="center">
-  <a href="https://github.com/tejitopia/commonroom">
-    <img src="public/images/banner-image.png" alt="Commonroom Banner Image" width="900" height="207">
-  </a>
-
 ### Built With
 
 - ![Static Badge](https://img.shields.io/badge/HTML-6052C7?style=html)
