@@ -183,7 +183,7 @@ Here's how we suggest you go about proposing a change to Commonroom:
    - Example: `git commit -m 'Add some AmazingFeature'`
 4. **Push to Your Fork**: Push your changes to your fork.
    - Example: `git push origin feature/YourAmazingFeature`
-5. **Open a Pull Request**: Go to the our repo and open a pull request from your feature, bugfix, or hotfix branch to the appropriate branch on the main repository.
+5. **Open a Pull Request**: Go to our repo and open a pull request from your feature, bugfix, or hotfix branch to the appropriate branch on the main repository.
    - For features and bug fixes, target the `develop` branch.
    - For hotfixes, target the `master` branch.
 6. **Code Review**: Wait for the code review and address any feedback.
