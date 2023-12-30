@@ -59,7 +59,7 @@ Add in shields once we have contributers and users using Commonroom
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#team">Team</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -141,7 +141,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 Founder & CEO - [TEJI](https://teji.io)
 
-Co-Founder & CTO - [Alen Yohannan](https://github.com/AlenVelocity)
+Co-Founder & CTO - [Alen Velocity](https://github.com/AlenVelocity)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -189,9 +189,9 @@ Distributed under the GNU General Public License v3.0. See `LICENSE.txt` for mor
 
 ## Contact
 
-TEJI - [@twitter_handle](https://x.com/tejitopia) - hello@tejitopia.com
+TEJI - [@TEJITOPIA](https://x.com/tejitopia) - hello@tejitopia.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Alen - [@AlenVelocity](https://x.com/alenvelocity)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
