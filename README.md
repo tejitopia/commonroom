@@ -37,9 +37,9 @@ Add in shields once we have contributers and users using Commonroom
     <br />
     <a href="https://commonroom.chat">Visit Site</a>
     ·
-    <a href="https://github.com/tejitopia/commonroom/labels/bug">Report Bug</a>
+    <a href="https://github.com/tejitopia/commonroom/issues/new">Report Bug</a>
     ·
-    <a href="https://github.com/tejitopia/commonroom/labels/enhancement">Request Feature</a>
+    <a href="https://github.com/tejitopia/commonroom/issues/new">Request Feature</a>
   </p>
 </div>
 
@@ -124,11 +124,23 @@ This section outlines how to set up the Commonroom locally. By following these i
 
 <!-- USAGE EXAMPLES -->
 
+<!-- LEAVING IN HERE INCASE WE WANT TO ADD
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+-->
+
+<!-- TEAM -->
+
+## Team
+
+Founder & CEO - [TEJI] (https://teji.io)
+Co-Founder & CTO - [Alen Yohannan] (https://github.com/AlenVelocity)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
