@@ -108,10 +108,16 @@ This section outlines how to set up the Commonroom locally. By following these i
    ```
 
 3. **Navigate to the project directory**:
+
+   ```sh
    cd commonroom
+   ```
 
 4. **Install NPM packages**:
+
+   ```sh
    npm install
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
